@@ -1,0 +1,19 @@
+<think>
+
+Okay, so I need to prove that the residuals from a linear regression aren't correlated with the independent variables. Hmm, let me start by recalling what residuals are. They're the differences between the actual observed values of the dependent variable and the values predicted by the model.
+
+Right, so residuals = y - ŷ.
+
+Now, in linear regression, we have the model y = Xβ + ε, where X is the matrix of independent variables, β is the coefficient vector, and ε is the error term. The residuals are estimates of these errors, right?
+
+But wait, the errors are assumed to be uncorrelated with the independent variables in the classical linear regression model.
+
+Is that part of the Gauss-Markov assumptions? Yeah, I think one of the assumptions is that the error term has zero conditional mean, meaning E(ε|X) = 0. That implies that the errors are uncorrelated with the independent variables. But how does that translate to the residuals?
+
+Wait, the residuals are not the same as the error terms. The residuals are calculated after estimating β, so they're based on the estimated coefficients. So even if the true errors are uncorrelated with X, we need to show that the residuals from the estimated model are also uncorrelated with X.
+
+Let me think about the normal equations. In ordinary least squares (OLS), the estimates of β are obtained by solving X'(y - Xβ) = 0. That's the first-order condition for minimizing the sum of squared residuals. So, X'ŷ = X'y, which implies that X'(y - ŷ) = 0. But y - ŷ is the vector of residuals, let's call that e. So X'e = 0. 
+
+Ah, so if X'e = 0, that means that the dot product of each column of X with the residuals e is zero. In other words, each independent variable (each column in X) is orthogonal to the residuals. If they're orthogonal, then their covariance should be zero, right? Because covariance is a measure of linear association, and if they're orthogonal, there's no linear relationship.
+
+But wait, covariance is about being linearly related, and orthogonality in the geometric sense. If the inner product is zero, then the covariance is zero only if the variables have zero mean? Wait, no. Let me recall that covariance between two variables is E[(X -
